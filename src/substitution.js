@@ -5,7 +5,7 @@ function substitution(input, alphabet, encode = true) {
 
     // Create an empty array, adding each character of the "alphabet" parameter, then check if each character is unique 
     const checkAlphabet = []
-    for (letters in alphabet){
+    for(letters in alphabet){
         checkAlphabet.push(alphabet[letters])
     }
     let alphabetHasDuplicate = checkAlphabet.some((letter, arrayBank) => checkAlphabet.indexOf(letter) !== arrayBank)
@@ -19,7 +19,7 @@ function substitution(input, alphabet, encode = true) {
     }
 
     // For each character in the input
-    for (characters in input){
+    for(characters in input){
         const character = input[characters]
         const codeValue = alphabet.indexOf(character)
         const trueValue = trueAlphabet.indexOf(character)

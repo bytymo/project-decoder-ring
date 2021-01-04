@@ -1,6 +1,6 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-function getCol(letter) {
+function getCol(letter){
     // Get the index value of the letter
     let letterVal = alphabet.indexOf(letter)
     // For letters "j" and "k", subtract the index value by one, so "i" and "j" are the same value, and k takes "j"'s value, keeping to the grid
@@ -38,18 +38,18 @@ function polybius(input, encode = true) {
 
     // create an empty variable for the resulting input
     let result = ""
-    if (encode) {
+    if(encode){
         // If the message is being encoded, check each character in the input. If the character is a space, return a space, otherwise return the two-digit code for the letter
         for(characters in input) {
             let character = input[characters]
             result+= character === " " ? character : getNum(character)
         }
     }
-    else {
+    else{
         // If the message is being decoded, create an array of the encrypted numbers
         const encryptionArray = input.split(" ")
 
-        for(numbers in encryptionArray) {
+        for(numbers in encryptionArray){
             // Get each encrypted word
             let word = encryptionArray[numbers]
             // Figure out if this word is the last word in the array
@@ -58,13 +58,13 @@ function polybius(input, encode = true) {
             const addSpace = word != lastWord ? true : false
 
             // If the encrypted word has an odd number of numbers, return false and end the evaluation
-            if(word.length%2 != 0) {
+            if(word.length%2 != 0){
                 result = false
                 break
             }
             
             // While the word hasn't been completely dissolved, isolate the first two numbers, if the numbers equal 42, return i/j, otherwise go through the alphabet and find out which letter it relates to. Delete this number pairing after solving and add the letter to the resulting string
-            while (word.length > 0) {
+            while(word.length > 0){
                 let wordSection = word.substr(0,2)
                 if (wordSection == 42) {
                     result += "(i/j)"
