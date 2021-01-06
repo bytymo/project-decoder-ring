@@ -42,4 +42,9 @@ describe("polybius()", () => {
         const actual = polybius("4432423352125413", false)
         expect(actual).to.equal(expected)
     })
+
+    it("*Extra* Input parameter must be a string. Otherwise, it should return false", () => {
+        const actual = polybius("th1nkful")
+        expect(actual).to.be.a('string')
+    })
 })

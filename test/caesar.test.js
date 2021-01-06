@@ -3,12 +3,18 @@ const caesar = require("../src/caesar")
 
 describe("caesar()", () => {
     it("Should return false if shift is less than 25, greater than -25, or equal to zero", () => {
-        const actual = caesar("Thinkful")
-        expect(actual).to.be.false
+        const zero = caesar("Thinkful")
+        expect(zero).to.be.false
+
+        const above = caesar("Thinkful", 26)
+        expect(above).to.be.false
+
+        const below = caesar("Thinkful", -40)
+        expect(below).to.be.false
     })
     it("Spaces should be maintained throughout, as should other non-alphabetic symbols", () => {
-        const expected = 'bpqa qa i amkzmb umaaiom!'
-        const actual = caesar("This is a secret message!", 8)
+        const expected = 'bpqa qa i amkzmb  umaaiom!'
+        const actual = caesar("This is a secret  message!", 8)
 
         expect(actual).to.equal(expected)
     })
